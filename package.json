@@ -1,0 +1,38 @@
+{
+  "name": "periodictable",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^3.0.0",
+    "@sveltejs/kit": "^2.0.0",
+    "@sveltejs/vite-plugin-svelte": "^3.0.0",
+    "@types/node": "^22.3.0",
+    "svelte": "^4.2.7",
+    "svelte-check": "^3.6.0",
+    "typescript": "^5.0.0",
+    "vite": "^5.0.3"
+  },
+  "type": "module",
+  "trustedDependencies": [
+    "@sveltejs/kit",
+    "esbuild",
+    "svelte-preprocess"
+  ],
+  "dependencies": {
+    "@svelteuidev/composables": "^0.15.7",
+    "@svelteuidev/core": "^0.15.7",
+    "@svelteuidev/motion": "^0.15.7",
+    "@svelteuidev/preprocessors": "^0.15.7",
+    "@svelteuidev/prism": "^0.15.7",
+    "@types/three": "^0.167.1",
+    "dat.gui": "^0.7.9",
+    "three": "^0.167.1"
+  }
+}
