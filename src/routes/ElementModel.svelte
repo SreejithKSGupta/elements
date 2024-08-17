@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Card, Badge, Loader, Center, Flex, Box, Text, Image, Grid } from '@svelteuidev/core';
   import { onMount } from 'svelte';
   import ThreeDViewer from './ThreeDViewer.svelte';
 
@@ -14,70 +13,218 @@
 </script>
 
 <div id="modelcontent">
+  {#if loading}
+    <div class="loader-container">
+      <div class="loader"></div>
+    </div>
+  {:else}
+    <div class="container">
+      <div class="card">
+        <div class="image-and-details">
+          <img src={element.image.url} alt={element.image.title} class="element-image" />
+          <div class="details">
+            <div class="detail-item">
+              <strong>Name:</strong>
+              <span>{element.name}</span>
+            </div>
+            <div class="detail-item">
+              <strong>Symbol:</strong>
+              <span>{element.symbol}</span>
+            </div>
+            <div class="detail-item">
+              <strong>Category:</strong>
+              <span>{element.category}</span>
+            </div>
+            <div class="detail-item">
+              <strong>Atomic Number:</strong>
+              <span>{element.number}</span>
+            </div>
+          </div>
+        </div>
+      </div>
 
-{#if loading}
-  <Center style="height: 100%;">
-    <Loader size="xl" variant="bars" />
-  </Center>
-{:else}
-  <Box p={6}>
-    <Flex justify="space-between" align="center" mb={6} >
-      <Text size="xl" weight="bold" color="gray">{element.symbol}</Text>
-      <Text size="xl" weight="bold" color="dark">{element.name}</Text>
-      <Badge color="indigo" variant="filled" radius="md" size="lg">{element.category}</Badge>
-    </Flex>
+      <div class="card">
+        <h2 class="section-title">General Information</h2>
+        <div class="details">
+          <div class="detail-item">
+            <strong>Atomic Number:</strong>
+            <span>{element.number}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Atomic Mass:</strong>
+            <span>{element.atomic_mass}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Phase:</strong>
+            <span>{element.phase}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Density:</strong>
+            <span>{element.density} g/L</span>
+          </div>
+          <div class="detail-item">
+            <strong>Boiling Point:</strong>
+            <span>{element.boil} K</span>
+          </div>
+          <div class="detail-item">
+            <strong>Melting Point:</strong>
+            <span>{element.melt} K</span>
+          </div>
+          <div class="detail-item">
+            <strong>Molar Heat:</strong>
+            <span>{element.molar_heat} J/mol·K</span>
+          </div>
+        </div>
+      </div>
 
-    <Center>
-      <Image src={element.image.url} alt={element.image.title} width={256} radius="md"  />
-    </Center>
+      <div class="card">
+        <h2 class="section-title">Electron Configuration</h2>
+        <div class="details">
+          <div class="detail-item">
+            <strong>Electron Configuration:</strong>
+            <span>{element.electron_configuration}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Electron Affinity:</strong>
+            <span>{element.electron_affinity} kJ/mol</span>
+          </div>
+          <div class="detail-item">
+            <strong>Electronegativity:</strong>
+            <span>{element.electronegativity_pauling}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Ionization Energies:</strong>
+            <span>{element.ionization_energies.join(', ')} kJ/mol</span>
+          </div>
+          <div class="detail-item">
+            <strong>Shells:</strong>
+            <span>{element.shells.join(', ')}</span>
+          </div>
+        </div>
+      </div>
 
-    <Grid cols={1} mt={6}>
-      <Card withBorder shadow="lg" radius="md" p="lg">
-        <Text size="lg" weight="bold" color="indigo" mb="sm">General Information</Text>
-        <Text><strong>Atomic Number:</strong> {element.number}</Text>
-        <Text><strong>Atomic Mass:</strong> {element.atomic_mass}</Text>
-        <Text><strong>Phase:</strong> {element.phase}</Text>
-        <Text><strong>Density:</strong> {element.density} g/L</Text>
-        <Text><strong>Boiling Point:</strong> {element.boil} K</Text>
-        <Text><strong>Melting Point:</strong> {element.melt} K</Text>
-        <Text><strong>Molar Heat:</strong> {element.molar_heat} J/mol·K</Text>
-      </Card>
+      <div class="card">
+        <h2 class="section-title">Additional Details</h2>
+        <div class="details">
+          <div class="detail-item">
+            <strong>Discovered By:</strong>
+            <span>{element.discovered_by}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Named By:</strong>
+            <span>{element.named_by}</span>
+          </div>
+          <div class="detail-item">
+            <strong>Summary:</strong>
+            <span>{element.summary}</span>
+          </div>
+          <div class="detail-item">
+            <a href={element.source} target="_blank">Wikipedia</a>
+          </div>
+        </div>
+      </div>
 
-      <Card withBorder shadow="lg" radius="md" p=4 mt={6}>
-        <Text size="lg" weight="bold" color="indigo" mb="sm">Electron Configuration</Text>
-        <Text><strong>Electron Configuration:</strong> {element.electron_configuration}</Text>
-        <Text><strong>Electron Affinity:</strong> {element.electron_affinity} kJ/mol</Text>
-        <Text><strong>Electronegativity:</strong> {element.electronegativity_pauling}</Text>
-        <Text><strong>Ionization Energies:</strong> {element.ionization_energies.join(', ')} kJ/mol</Text>
-        <Text><strong>Shells:</strong> {element.shells.join(', ')}</Text>
-      </Card>
-
-      <Card withBorder shadow="lg" radius="md"  p=4 mt={6}>
-        <Text size="lg" weight="bold" color="indigo" mb="sm">Additional Details</Text>
-        <Text><strong>Discovered By:</strong> {element.discovered_by}</Text>
-        <Text><strong>Named By:</strong> {element.named_by}</Text>
-        <Text><strong>Summary:</strong> {element.summary}</Text>
-        <Text>
-          <a href={element.source} target="_blank" style="color: blue; text-decoration: underline;">Wikipedia</a>
-        </Text>
-      </Card>
-    </Grid>
-
-
-    <Card withBorder shadow="lg" radius="md" p=4 mt={6}>
-      <Text size="lg" weight="bold" color="indigo" mb="sm">Bohr Model</Text>
-        <Box style="width: 100%;">
+      <div class="card">
+        <h2 class="section-title">Bohr Model</h2>
+        <div class="bohr-model-container">
           <ThreeDViewer modelUrl={element.bohr_model_3d} />
-        </Box>
-     
-    </Card>
-  </Box>
-{/if}
+        </div>
+      </div>
+    </div>
+  {/if}
 </div>
 
 <style>
+  #modelcontent {
+    width: 100%;
+  }
 
-  #modelcontent{
-    width:100%;
+  .loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #3498db;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    padding: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 800px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 16px;
+    background-color: rgba(10, 17, 54, 0.822);
+  }
+
+  .image-and-details {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .element-image {
+    width: 256px;
+    border-radius: 8px;
+  }
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px;
+
+  }
+
+  .detail-item strong {
+    width: 50%;
+    flex-shrink: 0;
+  }
+
+  .detail-item span {
+   width: 50%;
+    text-align: left;
+  }
+
+  .section-title {
+    color: #4b0082;
+    margin-bottom: 8px;
+  }
+
+  .bohr-model-container {
+    width: 100%;
+  }
+
+  a {
+    color: blue;
+    text-decoration: underline;
   }
 </style>
