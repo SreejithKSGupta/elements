@@ -51,7 +51,7 @@
       opened={isModalOpen}
       on:close={closeModal}
       overlayBlur={3}
-      size="lg" 
+      size="full" 
       overflow="inside"
       overlayOpacity={0.5}
       

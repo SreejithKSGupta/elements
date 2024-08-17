@@ -61,22 +61,12 @@
           <a href={element.source} target="_blank" style="color: blue; text-decoration: underline;">Wikipedia</a>
         </Text>
       </Card>
-
-      <Card withBorder shadow="lg" radius="md"  p=4 mt={6}>
-        <Text size="lg" weight="bold" color="indigo" mb="sm">Visuals</Text>
-        <Text mt="sm">
-          <strong>Bohr Model 3D:</strong> <a href={element.bohr_model_3d} target="_blank" style="color: blue; text-decoration: underline;">View 3D Model</a>
-        </Text>
-      </Card>
     </Grid>
 
 
     <Card withBorder shadow="lg" radius="md" p=4 mt={6}>
-      <Text size="lg" weight="bold" color="indigo" mb="sm">Visuals</Text>
-      <Text mt="sm">
-        <strong>Bohr Model 3D:</strong>
-      </Text>
-        <Box style="width: 100%; height: 400px;">
+      <Text size="lg" weight="bold" color="indigo" mb="sm">Bohr Model</Text>
+        <Box style="width: 100%;">
           <ThreeDViewer modelUrl={element.bohr_model_3d} />
         </Box>
      
