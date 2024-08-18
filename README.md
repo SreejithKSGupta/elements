@@ -1,38 +1,60 @@
-# create-svelte
+# Periodic Table Viewer
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+**Author:** Sreejith KS
 
-## Creating a project
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This project is a comprehensive and interactive Periodic Table Viewer built with Svelte and hosted on Vercel. The application is fully responsive, providing an intuitive experience across devices. It allows users to explore the periodic table in detail, with features like 3D viewing of atoms, extensive data on each element, and more.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Features
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- **Responsive Design:** Optimized for use on all devices, ensuring a seamless experience whether on mobile, tablet, or desktop.
+- **3D Atom Viewer:** View each element's atomic structure in 3D for an immersive learning experience.
+- **Extensive Element Data:** Access detailed information about each element, including atomic mass, electron configuration, density, and much more.
+- **Interactive UI:** Intuitive and user-friendly interface, allowing easy navigation and exploration of the periodic table.
 
-## Developing
+## Upcoming Features
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- **More scales, like electronegativity, reactivity etc:** A feature to visualize electronegativity and other important metrics in an easy-to-understand manner.
 
-```bash
-npm run dev
+## Installation
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+To get started with the project:
 
-## Building
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SreejithKSGupta/elements.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd your-repo-name
+   ```
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the development server:
+   ```bash
+   npm run dev
+   ```
+5. Open your browser and visit `http://localhost:3000` to see the application in action.
 
-To create a production version of your app:
+## Data Source
 
-```bash
-npm run build
-```
+The data used in this project (approximately 80% of the whole project, I would say) is sourced from the excellent [Periodic Table JSON](https://github.com/Bowserinator/Periodic-Table-JSON) repository by Bowserinator. I extend my sincere thanks for making such valuable and complete data available to the community.
 
-You can preview the production build with `npm run preview`.
+## Contribution
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+This project is open to changes and contributions. If you have suggestions, improvements, or new features you'd like to add, feel free to fork the repository and submit a pull request. Your contributions are welcome!
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Acknowledgements
+
+- [Bowserinator/Periodic-Table-JSON](https://github.com/Bowserinator/Periodic-Table-JSON) for providing the core data used in this project.
+
+## Hosting
+
+This project is hosted on [Vercel](https://elements-bmeh.vercel.app/), ensuring fast and reliable performance.
