@@ -1,5 +1,6 @@
 <script>
     import { Group, Image, Title, Anchor, Space } from '@svelteuidev/core';
+   
   </script>
   
   <header>

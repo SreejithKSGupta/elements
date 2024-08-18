@@ -2,6 +2,7 @@
    import "../app.css";
    import { SvelteUIProvider } from "@svelteuidev/core";
    import Header from "./header.svelte";
+   import SEO from './Seo.svelte';
 
    let isPortrait = false;
 
@@ -16,7 +17,7 @@
       window.addEventListener("resize", checkOrientation);
    }
 </script>
-
+<SEO/>
 {#if isPortrait} 
    <div class="portrait-warning">
       <div class="rotate-icon">🔄</div>
