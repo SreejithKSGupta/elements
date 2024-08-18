@@ -15,7 +15,7 @@
       align-items: center;
       cursor: pointer;
       border-radius: 5px;
-      padding: 0.5rem;
+      padding: 0.2rem;
     "
     on:click={() => show(element)}
 >
