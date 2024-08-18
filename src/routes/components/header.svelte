@@ -1,12 +1,11 @@
 <script>
     import { Group, Image, Title, Anchor, Space } from '@svelteuidev/core';
-   
   </script>
   
   <header>
 
       <Group align="center" spacing="xs">
-        <Image src="favicon.webp" alt="Logo" radius={100} width={"5vh"} height={"5vh"} />
+        <Image src="/favicon.webp" alt="Logo" radius={100} width={"5vh"} height={"5vh"} />
         <Title color={"white"} order={1}>Period</Title>
       </Group>
       <Group spacing="xs">

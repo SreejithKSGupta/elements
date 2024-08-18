@@ -4,7 +4,18 @@
 
   export let element: any = null;
   let loading = true;
+  function copyToClipboard() {
+    const currentURL =  window.location.hostname;
+    const textToCopy = `${currentURL}/${element.name}`;
 
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        console.log("Text copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
+    }
   onMount(() => {
     setTimeout(() => {
       loading = false;
@@ -39,6 +50,9 @@
               <strong>Atomic Number:</strong>
               <span>{element.number}</span>
             </div>
+            <button on:click={copyToClipboard}>
+              Share
+            </button>
           </div>
         </div>
       </div>
@@ -227,4 +241,23 @@
     color: blue;
     text-decoration: underline;
   }
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+  button:hover {
+    background-color: #45a049;
+  }
+
+  button:active {
+    background-color: #3e8e41;
+  }
+
 </style>

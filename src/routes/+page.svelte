@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { elements } from './db.js';
-  import ElementData from './ElementModel.svelte';
-  import Elementbox from './elementbox.svelte';
+   import { elements } from '$lib/db';
+  import ElementData from './components/ElementModel.svelte';
+  import Elementbox from './components/elementbox.svelte';
   import { Box, Modal } from '@svelteuidev/core';
   import { scale } from 'svelte/transition';
 

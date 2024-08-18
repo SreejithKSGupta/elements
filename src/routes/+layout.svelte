@@ -1,8 +1,8 @@
 <script>
    import "../app.css";
    import { SvelteUIProvider } from "@svelteuidev/core";
-   import Header from "./header.svelte";
-   import SEO from './Seo.svelte';
+   import Header from "./components/header.svelte";
+   import SEO from './components/Seo.svelte';
 
    let isPortrait = false;
 
