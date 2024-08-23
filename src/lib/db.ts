@@ -1,4 +1,5 @@
-    export let elements = [
+import type { Element } from '$lib/types';
+    export let elements: Element[] = [
         {
             "name": "Hydrogen",
             "appearance": "colorless gas",
