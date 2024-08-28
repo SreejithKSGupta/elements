@@ -22,19 +22,11 @@
  <Optionspanel/>
 </div>
 
-  <Box 
-    style="
-      display: grid;
-      grid-template-columns: repeat(18, 1fr);
-      grid-template-rows: repeat(7, 1fr);
-      gap: 0.3rem;
-      width: 95vw;
-      height: 80vh;
-    ">
+  <div  class="periodic_table">
     {#each elements as element}
       <Elementbox element={element} show={showDetails} />
     {/each}
-  </Box>
+</div>
 
   {#if isModalOpen}
   <div transition:scale={{ duration: 300 }}>
@@ -47,12 +39,28 @@
       size="full" 
       overflow="inside"
       overlayOpacity={0.5}
-      
-      style="
-        ::webkit-scrollbar-width:0px;
-      "
+      style="::webkit-scrollbar-width:0px;"
     >
       <ElementData element={selectedElement} />
     </Modal>
   </div>
   {/if}
+
+  <style>
+    .periodic_table {
+      display: grid;
+      grid-template-columns: repeat(18, 1fr);
+      grid-template-rows: repeat(7, 1fr);
+      gap: 0.3rem;
+      width: 95vw;
+      height: 80vh;
+      overflow: scroll;
+    }
+  
+    @media (max-height: 500px) {
+      .periodic_table {
+        gap:0.2rem;
+      }
+    }
+  </style>
+  

@@ -3,18 +3,6 @@
   import type { Element,Propertyname } from "$lib/types";
   import {Box,} from "@svelteuidev/core";
   import ElemementCard from "./ElemementCard.svelte";
-  let items = [
-    { path: 'atomic_mass', label: 'Atomic Mass' },
-    { path: 'boil', label: 'Boiling Point' },
-    { path: 'density', label: 'Density' },
-    { path: 'melt', label: 'Melting Point' },
-    { path: 'molar_heat', label: 'Molar Heat' },
-    { path: 'number', label: 'Atomic Number' },
-    { path: 'electron_affinity', label: 'Electron Affinity' },
-    { path: 'electronegativity_pauling', label: 'Electronegativity' },
-    { path: 'ionization_energies', label: 'Ionization' },
-];
-  
   let propertyname: Propertyname = {
     atomic_mass: "Atomic Mass ",
     boil: "Boiling point",
