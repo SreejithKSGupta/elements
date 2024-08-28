@@ -17,9 +17,9 @@
     <h3 class="atomic-mass">
         {Math.round(element.atomic_mass)}
     </h3>
-    <h1 class="element-symbol">
+    <h2 class="element-symbol">
         {element.symbol}
-    </h1>
+    </h2>
     <h3 class="element-number">
         {element.number}
     </h3>
@@ -37,32 +37,42 @@
     }
 
     .atomic-mass {
-        width: 100%;
+      width: 100%;
       text-align: left;
-      color: white;
+      color: rgba(0, 53, 35, 0.993);
       font-weight: bold;
-      font-size: 60%;
+      font-size: 90%;
     }
 
     .element-symbol {
-        width: 100%;
+      width: 100%;
       text-align: center;
       color: black;
       font-weight: bold;
-      font-size: 80%;
     }
 
     .element-number {
       width: 100%;
       text-align: right;
-      color: white;
+      color: rgb(83, 83, 83);
       font-weight: bold;
-      font-size: 60%;
+      font-size: 90%;
     }
 
     @media (max-height: 500px) {
       .elementbox {
         padding: 0.1rem;
       }
+      .atomic-mass {
+      font-size: 60%;
+    }
+
+    .element-symbol {
+      font-size: 80%;
+    }
+
+    .element-number {
+      font-size: 60%;
+    }
     }
 </style>
