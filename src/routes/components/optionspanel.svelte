@@ -35,7 +35,7 @@ let items = [
         width: 90vw;
     }
     button {
-      background-color: rgb(10, 70, 94);
+      background-color: rgba(56, 214, 16, 0.363);
       font-size: large;
       padding: 8px 12px;
       outline: none;

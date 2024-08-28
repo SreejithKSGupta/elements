@@ -38,3 +38,17 @@ export interface Element {
     };
     block: string;
 }
+
+
+export interface Propertyname {
+    atomic_mass: string;
+    boil: string;
+    density: string;
+    melt: string;
+    molar_heat: string;
+    number: string;
+    electron_affinity: string;
+    electronegativity_pauling: string;
+    ionization_energies: string;
+    [key: string]: string;
+}

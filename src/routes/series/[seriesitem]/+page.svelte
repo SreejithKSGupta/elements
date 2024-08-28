@@ -1,8 +1,33 @@
 <script lang="ts">
   import { elements } from "$lib/db";
-  import type { Element } from "$lib/types";
+  import type { Element,Propertyname } from "$lib/types";
   import {Box,} from "@svelteuidev/core";
   import ElemementCard from "./ElemementCard.svelte";
+  let items = [
+    { path: 'atomic_mass', label: 'Atomic Mass' },
+    { path: 'boil', label: 'Boiling Point' },
+    { path: 'density', label: 'Density' },
+    { path: 'melt', label: 'Melting Point' },
+    { path: 'molar_heat', label: 'Molar Heat' },
+    { path: 'number', label: 'Atomic Number' },
+    { path: 'electron_affinity', label: 'Electron Affinity' },
+    { path: 'electronegativity_pauling', label: 'Electronegativity' },
+    { path: 'ionization_energies', label: 'Ionization' },
+];
+  
+  let propertyname: Propertyname = {
+    atomic_mass: "Atomic Mass ",
+    boil: "Boiling point",
+    density: "Density",
+    melt: "Melting Point",
+    molar_heat: "Molar Heat",
+    number: "Atomic Number",
+    electron_affinity: "Electron Affinity",
+    electronegativity_pauling:"Electronegativity",
+    ionization_energies: "Ionization Energies"
+
+    }
+    
 
   export let data: any;
   let property = data.series as keyof Element;
@@ -46,13 +71,25 @@
   if (typeof window !== "undefined") {
     filterElements();
   }
+
+  function copyToClipboard() {
+    const textToCopy =  window.location.href;
+
+    navigator.clipboard.writeText(textToCopy)
+      .then(() => {
+        alert("Text copied to clipboard!");
+      })
+      .catch(err => {
+        console.error("Failed to copy text: ", err);
+      });
+    }
 </script>
 
 <div class="contentbox" >
       
   {#if !error}
     <h1 style="text-align: center; padding:15px; color:white; height:5vh;">
-      {property} of Elements in the Periodic Table
+      {propertyname[property]} of Elements in the Periodic Table <button on:click={copyToClipboard}>Share</button>
     </h1>
     <div class="filter-panel">
       <div>
@@ -93,7 +130,7 @@
     justify-content: center;
     padding: 20px;
     width: 100%;
-    height: 70vh;
+    height: 80vh;
     overflow:scroll;
      "
     >
@@ -155,5 +192,15 @@
       width: 95%;
       grid-template-columns: 1fr;
     }
+  }
+
+  button {
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 10px;
+    margin: 5px;
+    background-color: rgba(19, 255, 19, 0.582);
+    color: rgb(255, 255, 255);
   }
 </style>
