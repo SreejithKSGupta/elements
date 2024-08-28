@@ -24,12 +24,14 @@
 </script>
 
 <div id="modelcontent">
-  {#if loading}
-    <div class="loader-container">
-      <div class="loader"></div>
-    </div>
-  {:else}
     <div class="container">
+      {#if loading}
+      <div class="loader-container">
+        <div class="loader"> </div>
+        <br/>
+        Loading...
+      </div>
+      {:else}
       <div class="card">
         <div class="image-and-details">
           <img src={element.image.url} alt={element.image.title} class="element-image" />
@@ -52,6 +54,9 @@
             </div>
             <button on:click={copyToClipboard}>
               Share
+            </button>
+            <button on:click={()=>window.location.href=element.source}>
+              Wikipedia
             </button>
           </div>
         </div>
@@ -116,7 +121,6 @@
           </div>
         </div>
       </div>
-
       <div class="card">
         <h2 class="section-title">Additional Details</h2>
         <div class="details">
@@ -132,32 +136,31 @@
             <strong>Summary:</strong>
             <span>{element.summary}</span>
           </div>
-          <div class="detail-item">
-            <a href={element.source} target="_blank">Wikipedia</a>
-          </div>
         </div>
       </div>
-
       <div class="card">
         <h2 class="section-title">Bohr Model</h2>
         <div class="bohr-model-container">
           <ThreeDViewer modelUrl={element.bohr_model_3d} />
         </div>
       </div>
+      {/if}
     </div>
-  {/if}
+
 </div>
 
 <style>
   #modelcontent {
-    width: 100%;
+    width: 80vw;
+    height: 90vh;
   }
 
   .loader-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100%;
+    height: 80vh;
   }
 
   .loader {
@@ -189,7 +192,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 16px;
-    background-color: rgba(10, 17, 54, 0.822);
+    background-color: rgba(0, 92, 104, 0.116);
   }
 
   .image-and-details {
@@ -214,13 +217,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 7px;
-
+    padding: 4px 10px;
+  }
+  .detail-item:nth-child(even) {
+   background-color: #03c4ff15;
   }
 
   .detail-item strong {
     width: 50%;
     flex-shrink: 0;
+    font-weight: bold;
+    font-size: 120%;
   }
 
   .detail-item span {
@@ -229,27 +236,25 @@
   }
 
   .section-title {
-    color: #4b0082;
+    color: #03c4ff;
     margin-bottom: 8px;
+    text-align: center;
   }
 
   .bohr-model-container {
     width: 100%;
   }
 
-  a {
-    color: blue;
-    text-decoration: underline;
-  }
 
 button {
   background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+  color: rgb(255, 255, 255);
+  font-weight: bolder;
+  padding: 5px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   transition: background-color 0.3s ease;
 }
   button:hover {

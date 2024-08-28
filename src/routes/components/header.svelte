@@ -20,9 +20,9 @@
   
   <style>
     header{
-        height: 10vh;
+        height: 7vh;
         width: 100vw;
-        background-color: rgb(30, 3, 56);
+        background-color: rgba(1, 71, 73, 0.281);
         display: flex;
         flex-direction: row;
         justify-content: space-between;

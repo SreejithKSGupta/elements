@@ -9,9 +9,8 @@
   let error = true;
   let elementsdata: Element[] = [];
   let filteredElements: Element[] = [];
-  let mouseX = 0;
-  let mouseY = 0;
-  let backgroundColor = `rgb(14, 2, 66)`;
+
+
   let category = "";
   let phase = "";
   let block = "";
@@ -44,44 +43,17 @@
         return 0;
       });
   };
-
-  const handleMouseMove = (event: MouseEvent) => {
-    mouseX = event.clientX / window.innerWidth;
-    mouseY = event.clientY / window.innerHeight;
-    updateBackgroundColor();
-  };
-
-  const updateBackgroundColor = () => {
-    const r = Math.round(14 + mouseX * 40); 
-    const g = Math.round(2 + mouseY * 20); 
-    const b = Math.round(66 + (1 - mouseX) * 40); 
-    backgroundColor = `linear-gradient(135deg, rgb(${r}, ${g}, ${b}), rgb(${b}, ${g}, ${r}))`;
-  };
-
   if (typeof window !== "undefined") {
-    window.addEventListener("mousemove", handleMouseMove);
     filterElements();
   }
 </script>
 
-<Box
-  style="
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    width: 100vw; 
-    min-height: 90vh; 
-    background: {backgroundColor};
-    transition: background 0.2s ease;
-  "
->
+<div class="contentbox" >
+      
   {#if !error}
-    <h1 style="text-align: center; margin: 20px; color:white">
+    <h1 style="text-align: center; padding:15px; color:white; height:5vh;">
       {property} of Elements in the Periodic Table
     </h1>
-
-    <!-- Filter Panel -->
     <div class="filter-panel">
       <div>
         <label for="phase">Phase:</label>
@@ -121,7 +93,9 @@
     justify-content: center;
     padding: 20px;
     width: 100%;
-  "
+    height: 70vh;
+    overflow:scroll;
+     "
     >
       {#each filteredElements as element (element.symbol)}
          <ElemementCard element={element} property={property}/>
@@ -132,9 +106,18 @@
       <h2>Please enter a valid property</h2>
     </div>
   {/if}
-</Box>
+  </div>
 
 <style>
+
+   .contentbox {
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100vw; 
+    min-height: 90vh; 
+  }
   .filter-panel {
     margin: 20px;
     padding: 15px;
