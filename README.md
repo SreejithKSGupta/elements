@@ -1,3 +1,4 @@
+
 # Periodic Table Viewer
 
 **Author:** Sreejith KS
@@ -58,3 +59,8 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 ## Hosting
 
 This project is hosted on [Vercel](https://elements-bmeh.vercel.app/), ensuring fast and reliable performance.
+
+## Images
+![HomePage](https://github.com/user-attachments/assets/92ff69d9-d79a-40c9-a459-c8596e48c0b9)
+![Elements View](https://github.com/user-attachments/assets/d46bf2e7-5e6f-4897-b923-c27d60edb0b5)
+![3D view](https://github.com/user-attachments/assets/09f52000-9e21-48c8-b1f6-aa7969206be1)
